@@ -8,17 +8,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Custom Styles */
+        :root {
+            --primary-color: #2a5298;
+            --secondary-color: #1e3c72;
+            --accent-color: #ff6b6b;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
             padding-top: 60px;
         }
-
-        section {
-            padding: 80px 0;
-        }
-
+        
         .profile-photo {
             width: 200px;
             height: 200px;
@@ -26,43 +32,173 @@
             border: 5px solid white;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-
+        
         .bg-gradient-primary {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
         }
-
+        
         .skill-badge {
             font-size: 1rem;
             padding: 8px 15px;
             margin: 5px;
         }
-
+        
         .progress {
             height: 10px;
             margin-bottom: 20px;
         }
-
+        
         .social-icon {
             font-size: 1.5rem;
             margin: 0 10px;
             transition: transform 0.3s;
         }
-
+        
         .social-icon:hover {
             transform: translateY(-5px);
         }
-
-        html {
-            scroll-behavior: smooth;
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .ai-typing-container {
+            position: relative;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-height: 250px;
+            overflow: hidden;
+        }
+        
+        .typing-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            min-height: 200px;
+        }
+        
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.2em;
+            background-color: var(--primary-color);
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .ai-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .ai-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .ai-icon i {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .ai-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(42, 82, 152, 0.3);
+        }
+        
+        .card {
+            transition: transform 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, var(--accent-color), #ff8e8e);
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 20px;
+            }
+            
+            .ai-typing-container {
+                min-height: 300px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top py-3">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-user me-2"></i>Hadi Susanto
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-user-circle me-2"></i>
+                <span class="fw-bold">Hadi Susanto</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -70,7 +206,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#home">Beranda</a>
+                        <a class="nav-link active" href="#home">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">Tentang</a>
@@ -91,17 +227,16 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <!-- Foto Profil -->
                     <img src="assets/img/hadi.jpg" alt="Foto Profil" class="profile-photo rounded-circle">
                 </div>
-                <div class="col-md-8">
-                    <h1 class="display-4 fw-bold">Hadi Susanto</h1>
-                    <p class="lead">Web Developer & UI/UX Designer</p>
-                    <div class="mt-4">
-                        <a href="#contact" class="btn btn-light btn-lg me-2">
+                <div class="col-md-8 text-center text-md-start">
+                    <h1 class="display-4 fw-bold mb-3">Hadi Susanto</h1>
+                    <p class="lead mb-4">Full Stack Developer & UI/UX Designer</p>
+                    <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
+                        <a href="#contact" class="btn btn-light btn-lg px-4 py-3">
                             <i class="fas fa-envelope me-2"></i>Hubungi Saya
                         </a>
-                        <a href="#" class="btn btn-outline-light btn-lg mt-2">
+                        <a href="#" class="btn btn-outline-light btn-lg px-4 py-3">
                             <i class="fas fa-download me-2"></i>Download CV
                         </a>
                     </div>
@@ -114,38 +249,43 @@
     <section id="about" class="py-5 bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <h2 class="fw-bold mb-4 border-bottom pb-3">Tentang Saya</h2>
-                    <p class="lead">
-                        Saya seorang Full Stack Developer dengan pengalaman 5+ tahun dalam membangun aplikasi web modern.
-                        Spesialisasi saya meliputi JavaScript ecosystem, React, Node.js, dan desain UI/UX.
-                    </p>
-                    <p>
-                        Saya lulusan Teknik Elektro Universitas Tanjungpura. Selama karir saya, 
-                        saya telah membantu berbagai startup dan perusahaan mencapai tujuan bisnis mereka 
-                        melalui solusi teknologi yang inovatif dan skalabel.
-                    </p>
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="ai-typing-container shadow">
+                        <div class="ai-header">
+                            <div class="ai-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3 class="ai-title">Tentang Saya</h3>
+                        </div>
+                        <div class="typing-text" id="typing-text">
+                            <!-- Text will be typed here by JavaScript -->
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-6 mt-5 mt-lg-0">
+                <div class="col-lg-6">
                     <div class="card shadow">
-                        <div class="card-body">
-                            <h3 class="fw-bold mb-4">Informasi Pribadi</h3>
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-4 border-bottom pb-3">Informasi Pribadi</h3>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex">
-                                    <span class="fw-bold me-3">Nama:</span>
+                                <li class="list-group-item d-flex py-3">
+                                    <span class="fw-bold me-3 w-25">Nama:</span>
                                     <span>Hadi Susanto</span>
                                 </li>
-                                <li class="list-group-item d-flex">
-                                    <span class="fw-bold me-3">Email:</span>
+                                <li class="list-group-item d-flex py-3">
+                                    <span class="fw-bold me-3 w-25">Email:</span>
                                     <span>hadisusanto.coding@gmail.com</span>
                                 </li>
-                                <li class="list-group-item d-flex">
-                                    <span class="fw-bold me-3">Lokasi:</span>
+                                <li class="list-group-item d-flex py-3">
+                                    <span class="fw-bold me-3 w-25">Lokasi:</span>
                                     <span>Kubu Raya, Kalimantan Barat, Indonesia</span>
                                 </li>
-                                <li class="list-group-item d-flex">
-                                    <span class="fw-bold me-3">Pendidikan:</span>
-                                    <span>S1 Teknik Elektro</span>
+                                <li class="list-group-item d-flex py-3">
+                                    <span class="fw-bold me-3 w-25">Pendidikan:</span>
+                                    <span>S1 Teknik Elektro Universitas Tanjungpura</span>
+                                </li>
+                                <li class="list-group-item d-flex py-3">
+                                    <span class="fw-bold me-3 w-25">Pengalaman:</span>
+                                    <span>5+ Tahun</span>
                                 </li>
                             </ul>
                         </div>
@@ -158,35 +298,38 @@
     <!-- Skills Section -->
     <section id="skills" class="py-5">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5">Keahlian Teknis</h2>
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-3">Keahlian Teknis</h2>
+                <p class="lead text-muted">Berbagai keterampilan yang saya kuasai dalam pengembangan perangkat lunak</p>
+            </div>
             
             <div class="row">
                 <!-- Frontend Skills -->
                 <div class="col-md-6 mb-4">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold text-primary">
-                                <i class="fas fa-laptop-code me-2"></i>Frontend
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="card-title fw-bold text-primary mb-4">
+                                <i class="fas fa-laptop-code me-2"></i>Frontend Development
                             </h3>
                             <div class="mt-4">
                                 <h5>HTML/CSS <span class="float-end">95%</span></h5>
                                 <div class="progress">
-                                    <div class="progress-bar bg-success" style="width: 95%"></div>
+                                    <div class="progress-bar" style="width: 95%"></div>
                                 </div>
                                 
                                 <h5>JavaScript <span class="float-end">90%</span></h5>
                                 <div class="progress">
-                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                    <div class="progress-bar" style="width: 90%"></div>
                                 </div>
                                 
                                 <h5>React.js <span class="float-end">85%</span></h5>
                                 <div class="progress">
-                                    <div class="progress-bar bg-info" style="width: 85%"></div>
+                                    <div class="progress-bar" style="width: 85%"></div>
                                 </div>
                                 
                                 <h5>Bootstrap <span class="float-end">92%</span></h5>
                                 <div class="progress">
-                                    <div class="progress-bar bg-info" style="width: 92%"></div>
+                                    <div class="progress-bar" style="width: 92%"></div>
                                 </div>
                             </div>
                         </div>
@@ -195,30 +338,30 @@
                 
                 <!-- Backend Skills -->
                 <div class="col-md-6 mb-4">
-                    <div class="card h-100 shadow">
-                        <div class="card-body">
-                            <h3 class="card-title fw-bold text-primary">
-                                <i class="fas fa-server me-2"></i>Backend
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+                            <h3 class="card-title fw-bold text-primary mb-4">
+                                <i class="fas fa-server me-2"></i>Backend & Database
                             </h3>
                             <div class="mt-4">
                                 <h5>Node.js <span class="float-end">88%</span></h5>
                                 <div class="progress">
-                                    <div class="progress-bar bg-warning" style="width: 88%"></div>
+                                    <div class="progress-bar" style="width: 88%"></div>
                                 </div>
                                 
                                 <h5>Express.js <span class="float-end">85%</span></h5>
                                 <div class="progress">
-                                    <div class="progress-bar bg-warning" style="width: 85%"></div>
+                                    <div class="progress-bar" style="width: 85%"></div>
                                 </div>
                                 
                                 <h5>MongoDB <span class="float-end">80%</span></h5>
                                 <div class="progress">
-                                    <div class="progress-bar bg-danger" style="width: 80%"></div>
+                                    <div class="progress-bar" style="width: 80%"></div>
                                 </div>
                                 
                                 <h5>API RESTful <span class="float-end">90%</span></h5>
                                 <div class="progress">
-                                    <div class="progress-bar bg-danger" style="width: 90%"></div>
+                                    <div class="progress-bar" style="width: 90%"></div>
                                 </div>
                             </div>
                         </div>
@@ -228,8 +371,8 @@
             
             <!-- Other Skills -->
             <div class="mt-5">
-                <h3 class="fw-bold mb-4">Soft Skills & Tools</h3>
-                <div class="d-flex flex-wrap">
+                <h3 class="fw-bold mb-4 text-center">Soft Skills & Tools</h3>
+                <div class="d-flex flex-wrap justify-content-center">
                     <span class="badge bg-primary skill-badge">Git & GitHub</span>
                     <span class="badge bg-secondary skill-badge">UI/UX Design</span>
                     <span class="badge bg-success skill-badge">Agile Method</span>
@@ -246,25 +389,34 @@
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5">Hubungi Saya</h2>
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-3">Hubungi Saya</h2>
+                <p class="lead text-muted">Silakan kirim pesan untuk proyek atau kesempatan kerja sama</p>
+            </div>
             <div class="row justify-content-center">
-                <div class="col-md-8">
+                <div class="col-lg-8">
                     <div class="card shadow">
-                        <div class="card-body p-5">
+                        <div class="card-body p-4 p-md-5">
                             <form>
-                                <div class="mb-4">
-                                    <label for="name" class="form-label fw-bold">Nama Lengkap</label>
-                                    <input type="text" class="form-control form-control-lg" id="name" required>
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label for="name" class="form-label fw-bold">Nama Lengkap</label>
+                                        <input type="text" class="form-control form-control-lg" id="name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label for="email" class="form-label fw-bold">Email</label>
+                                        <input type="email" class="form-control form-control-lg" id="email" required>
+                                    </div>
                                 </div>
                                 <div class="mb-4">
-                                    <label for="email" class="form-label fw-bold">Email</label>
-                                    <input type="email" class="form-control form-control-lg" id="email" required>
+                                    <label for="subject" class="form-label fw-bold">Subjek</label>
+                                    <input type="text" class="form-control form-control-lg" id="subject" required>
                                 </div>
                                 <div class="mb-4">
                                     <label for="message" class="form-label fw-bold">Pesan</label>
                                     <textarea class="form-control form-control-lg" id="message" rows="4" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                <button type="submit" class="btn btn-primary btn-lg w-100 py-3 fw-bold">
                                     <i class="fas fa-paper-plane me-2"></i>Kirim Pesan
                                 </button>
                             </form>
@@ -276,15 +428,15 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+    <footer class="py-5 text-white">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <h5 class="fw-bold">Hadi Susanto</h5>
-                    <p class="mb-0">Web Developer & UI/UX Designer</p>
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h3 class="fw-bold mb-3">Hadi Susanto</h3>
+                    <p class="mb-0">Full Stack Developer & UI/UX Designer</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <div class="d-flex justify-content-md-end">
+                    <div class="d-flex justify-content-center justify-content-md-end gap-4">
                         <a href="#" class="text-white social-icon">
                             <i class="fab fa-linkedin"></i>
                         </a>
@@ -298,8 +450,11 @@
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
-                    <p class="mt-3 mb-0">© 2023 Hak Cipta Dilindungi</p>
                 </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2023 Hadi Susanto. Hak Cipta Dilindungi</p>
             </div>
         </div>
     </footer>
@@ -307,18 +462,68 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Smooth scrolling untuk anchor links -->
+    <!-- AI Typing Effect Script (FIXED) -->
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', function() {
+            // Text to be typed with AI effect
+            const text = "Saya seorang Full Stack Developer dengan pengalaman 5+ tahun dalam membangun aplikasi web modern. Spesialisasi saya meliputi JavaScript ecosystem, React, Node.js, dan desain UI/UX.\n\nSaya lulusan Teknik Elektro Universitas Tanjungpura. Selama karir saya, saya telah membantu berbagai startup dan perusahaan mencapai tujuan bisnis mereka melalui solusi teknologi yang inovatif dan skalabel.";
+            
+            const typingElement = document.getElementById('typing-text');
+            const speed = 30; // typing speed in milliseconds
+            let i = 0;
+            
+            // Clear the container initially
+            typingElement.innerHTML = '';
+            
+            function typeWriter() {
+                if (i < text.length) {
+                    // Remove any existing cursor
+                    const existingCursor = typingElement.querySelector('.cursor');
+                    if (existingCursor) {
+                        existingCursor.remove();
+                    }
+                    
+                    // Add character
+                    if (text.charAt(i) === '\n') {
+                        typingElement.innerHTML += '<br>';
+                    } else {
+                        typingElement.innerHTML += text.charAt(i);
+                    }
+                    
+                    // Add blinking cursor at the end
+                    typingElement.innerHTML += '<span class="cursor"></span>';
+                    
+                    // Scroll to the cursor to keep it in view
+                    typingElement.scrollTop = typingElement.scrollHeight;
+                    
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    // Keep the cursor blinking at the end
+                    const cursor = typingElement.querySelector('.cursor');
+                    if (cursor) {
+                        cursor.style.animation = 'blink 1s infinite';
+                    }
+                }
+            }
+            
+            // Start the typing effect after a short delay
+            setTimeout(typeWriter, 1000);
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
                 });
             });
         });
     </script>
 </body>
 </html>
-
-
