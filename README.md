@@ -1,5 +1,4 @@
 
-<!DOCTYPE html>
 <html lang="id" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
