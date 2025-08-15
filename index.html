@@ -3,26 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Saya - Hadi Susanto</title>
+    <title>Profil Saya</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 60px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .skill-badge {
+            font-size: 1rem;
+            padding: 8px 15px;
+            margin: 5px;
+        }
+
+        .progress {
+            height: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: transform 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Hadi Susanto</a>
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-user me-2"></i>Hadi Susanto
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#home">Beranda</a>
+                        <a class="nav-link" href="#home">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">Tentang</a>
@@ -39,18 +87,23 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="bg-primary text-white py-5">
-        <div class="container py-5">
+    <section id="home" class="bg-gradient-primary text-white">
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4 text-center mb-4 mb-md-0">
-                    <img src="assets/img/hadi.jpg" alt="Foto Profil" class="img-fluid rounded-circle border border-5 border-white shadow" width="250">
+                    <!-- Foto Profil -->
+                    <img src="assets/img/hadi.jpg" alt="Foto Profil" class="profile-photo rounded-circle">
                 </div>
                 <div class="col-md-8">
-                    <h1 class="display-4 fw-bold">Halo, Saya Hadi Susanto</h1>
-                    <p class="lead">Hobby MS Excel & Coding | Coding</p>
-                    <div class="d-flex gap-2 mt-4">
-                        <a href="#" class="btn btn-light btn-lg"><i class="fab fa-linkedin me-2"></i> LinkedIn</a>
-                        <a href="#" class="btn btn-outline-light btn-lg"><i class="fab fa-github me-2"></i> GitHub</a>
+                    <h1 class="display-4 fw-bold">Hadi Susanto</h1>
+                    <p class="lead">Web Developer & UI/UX Designer</p>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-light btn-lg me-2">
+                            <i class="fas fa-envelope me-2"></i>Hubungi Saya
+                        </a>
+                        <a href="#" class="btn btn-outline-light btn-lg">
+                            <i class="fas fa-download me-2"></i>Download CV
+                        </a>
                     </div>
                 </div>
             </div>
@@ -58,98 +111,114 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container py-5">
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h2 class="fw-bold mb-4">Tentang Saya</h2>
+                    <h2 class="fw-bold mb-4 border-bottom pb-3">Tentang Saya</h2>
                     <p class="lead">
-                        Saya seorang profesional di bidang Bahasa Pemograman dengan pengalaman 5 tahun. 
-                        Spesialisasi saya meliputi Codeigniter 3, Python, dan MS Excel.
+                        Saya seorang Full Stack Developer dengan pengalaman 5+ tahun dalam membangun aplikasi web modern.
+                        Spesialisasi saya meliputi JavaScript ecosystem, React, Node.js, dan desain UI/UX.
                     </p>
                     <p>
-                        Saya lulusan Universitas Tanjungpura dengan gelar ST. Selama karir saya, 
-                        saya telah membantu berbagai perusahaan mencapai tujuan mereka melalui 
-                        solusi teknologi inovatif.
+                        Saya lulusan Teknik Elektro Universitas Tanjungpura. Selama karir saya, 
+                        saya telah membantu berbagai startup dan perusahaan mencapai tujuan bisnis mereka 
+                        melalui solusi teknologi yang inovatif dan skalabel.
                     </p>
-                    <div class="mt-4">
-                        <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-download me-2"></i>Download CV</a>
-                    </div>
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
-                    <h3 class="fw-bold mb-4">Informasi Pribadi</h3>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex">
-                            <span class="fw-bold me-3">Nama Lengkap:</span>
-                            <span>Hadi Susanto</span>
-                        </li>
-                        <li class="list-group-item d-flex">
-                            <span class="fw-bold me-3">Email:</span>
-                            <span>hadisusanto.coding@gmail.com</span>
-                        </li>
-                        <li class="list-group-item d-flex">
-                            <span class="fw-bold me-3">Lokasi:</span>
-                            <span>Kubu Raya, Kalimantan Barat</span>
-                        </li>
-                        <li class="list-group-item d-flex">
-                            <span class="fw-bold me-3">Bahasa:</span>
-                            <span>Indonesia, Inggris</span>
-                        </li>
-                    </ul>
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h3 class="fw-bold mb-4">Informasi Pribadi</h3>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex">
+                                    <span class="fw-bold me-3">Nama:</span>
+                                    <span>Hadi Susanto</span>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span class="fw-bold me-3">Email:</span>
+                                    <span>hadisusanto.coding@gmail.com</span>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span class="fw-bold me-3">Lokasi:</span>
+                                    <span>Kubu Raya, Kalimantan Barat, Indonesia</span>
+                                </li>
+                                <li class="list-group-item d-flex">
+                                    <span class="fw-bold me-3">Pendidikan:</span>
+                                    <span>S1 Teknik Elektro</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-light">
-        <div class="container py-5">
+    <section id="skills" class="py-5">
+        <div class="container">
             <h2 class="text-center fw-bold mb-5">Keahlian Teknis</h2>
             
-            <!-- Tech Skills -->
-            <div class="row mb-5">
+            <div class="row">
+                <!-- Frontend Skills -->
                 <div class="col-md-6 mb-4">
                     <div class="card h-100 shadow">
                         <div class="card-body">
-                            <h3 class="card-title fw-bold"><i class="fas fa-code me-2 text-primary"></i>Pengembangan Web</h3>
+                            <h3 class="card-title fw-bold text-primary">
+                                <i class="fas fa-laptop-code me-2"></i>Frontend
+                            </h3>
                             <div class="mt-4">
-                                <h6>HTML/CSS <span class="float-end">90%</span></h6>
-                                <div class="progress mb-4" style="height: 10px">
-                                    <div class="progress-bar" style="width: 90%"></div>
+                                <h5>HTML/CSS <span class="float-end">95%</span></h5>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width: 95%"></div>
                                 </div>
                                 
-                                <h6>JavaScript <span class="float-end">85%</span></h6>
-                                <div class="progress mb-4" style="height: 10px">
-                                    <div class="progress-bar" style="width: 85%"></div>
+                                <h5>JavaScript <span class="float-end">90%</span></h5>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
                                 </div>
                                 
-                                <h6>Bootstrap <span class="float-end">95%</span></h6>
-                                <div class="progress mb-4" style="height: 10px">
-                                    <div class="progress-bar" style="width: 95%"></div>
+                                <h5>React.js <span class="float-end">85%</span></h5>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" style="width: 85%"></div>
+                                </div>
+                                
+                                <h5>Bootstrap <span class="float-end">92%</span></h5>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" style="width: 92%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
+                <!-- Backend Skills -->
                 <div class="col-md-6 mb-4">
                     <div class="card h-100 shadow">
                         <div class="card-body">
-                            <h3 class="card-title fw-bold"><i class="fas fa-server me-2 text-primary"></i>Backend & Database</h3>
+                            <h3 class="card-title fw-bold text-primary">
+                                <i class="fas fa-server me-2"></i>Backend
+                            </h3>
                             <div class="mt-4">
-                                <h6>Node.js <span class="float-end">80%</span></h6>
-                                <div class="progress mb-4" style="height: 10px">
-                                    <div class="progress-bar" style="width: 80%"></div>
+                                <h5>Node.js <span class="float-end">88%</span></h5>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" style="width: 88%"></div>
                                 </div>
                                 
-                                <h6>Python <span class="float-end">75%</span></h6>
-                                <div class="progress mb-4" style="height: 10px">
-                                    <div class="progress-bar" style="width: 75%"></div>
+                                <h5>Express.js <span class="float-end">85%</span></h5>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" style="width: 85%"></div>
                                 </div>
                                 
-                                <h6>MySQL/MongoDB <span class="float-end">85%</span></h6>
-                                <div class="progress mb-4" style="height: 10px">
-                                    <div class="progress-bar" style="width: 85%"></div>
+                                <h5>MongoDB <span class="float-end">80%</span></h5>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" style="width: 80%"></div>
+                                </div>
+                                
+                                <h5>API RESTful <span class="float-end">90%</span></h5>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" style="width: 90%"></div>
                                 </div>
                             </div>
                         </div>
@@ -157,40 +226,50 @@
                 </div>
             </div>
             
-            <!-- Soft Skills -->
-            <h3 class="fw-bold mb-4">Soft Skills</h3>
-            <div class="d-flex flex-wrap gap-2">
-                <span class="badge bg-primary p-3">Komunikasi Efektif</span>
-                <span class="badge bg-primary p-3">Manajemen Waktu</span>
-                <span class="badge bg-primary p-3">Pemecahan Masalah</span>
-                <span class="badge bg-primary p-3">Kerja Tim</span>
-                <span class="badge bg-primary p-3">Kepemimpinan</span>
-                <span class="badge bg-primary p-3">Adaptabilitas</span>
+            <!-- Other Skills -->
+            <div class="mt-5">
+                <h3 class="fw-bold mb-4">Soft Skills & Tools</h3>
+                <div class="d-flex flex-wrap">
+                    <span class="badge bg-primary skill-badge">Git & GitHub</span>
+                    <span class="badge bg-secondary skill-badge">UI/UX Design</span>
+                    <span class="badge bg-success skill-badge">Agile Method</span>
+                    <span class="badge bg-danger skill-badge">Problem Solving</span>
+                    <span class="badge bg-warning skill-badge">Team Leadership</span>
+                    <span class="badge bg-info skill-badge">Communication</span>
+                    <span class="badge bg-dark skill-badge">Figma</span>
+                    <span class="badge bg-primary skill-badge">Docker</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5">
-        <div class="container py-5">
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
             <h2 class="text-center fw-bold mb-5">Hubungi Saya</h2>
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control form-control-lg" id="name" required>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow">
+                        <div class="card-body p-5">
+                            <form>
+                                <div class="mb-4">
+                                    <label for="name" class="form-label fw-bold">Nama Lengkap</label>
+                                    <input type="text" class="form-control form-control-lg" id="name" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="email" class="form-label fw-bold">Email</label>
+                                    <input type="email" class="form-control form-control-lg" id="email" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="form-label fw-bold">Pesan</label>
+                                    <textarea class="form-control form-control-lg" id="message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-paper-plane me-2"></i>Kirim Pesan
+                                </button>
+                            </form>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Alamat Email</label>
-                            <input type="email" class="form-control form-control-lg" id="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Pesan</label>
-                            <textarea class="form-control form-control-lg" id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Kirim Pesan</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -202,15 +281,24 @@
             <div class="row align-items-center">
                 <div class="col-md-6 mb-3 mb-md-0">
                     <h5 class="fw-bold">Hadi Susanto</h5>
-                    <p class="mb-0">© 2023 Hak Cipta Dilindungi</p>
+                    <p class="mb-0">Web Developer & UI/UX Designer</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <div class="d-flex justify-content-md-end gap-3">
-                        <a href="#" class="text-white fs-4"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="fab fa-github"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="fab fa-twitter"></i></a>
+                    <div class="d-flex justify-content-md-end">
+                        <a href="#" class="text-white social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-white social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-white social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
                     </div>
+                    <p class="mt-3 mb-0">© 2023 Hak Cipta Dilindungi</p>
                 </div>
             </div>
         </div>
@@ -218,9 +306,17 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="assets/js/script.js"></script>
+    
+    <!-- Smooth scrolling untuk anchor links -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
-
