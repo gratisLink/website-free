@@ -235,7 +235,7 @@
                     </div>
                     <div class="card-body position-relative">
                         <div class="profile-img-container mb-3">
-                            <img src="/static/hadi.JPG" alt="Hadi Susanto" class="profile-img">
+                            <img src="" alt="Hadi Susanto" class="profile-img">
                         </div>
                         <div class="developer-body">
                             <h3 class="mb-2">Hadi Susanto</h3>
